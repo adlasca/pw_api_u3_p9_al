@@ -27,3 +27,17 @@ import jakarta.persistence.Entity;
 public class MyEntity extends PanacheEntity {
     public String field;
 }
+
+/*Diseño guuiado por dominios(Domain Driver Design): 
+El software debe dividirse por dominios funcionales
+Cada dominio es candidato de microservicio
+
+Capas:
+Infraestructura: Capa que accede a los datos
+Application: Reside la logica del negocio
+Interface: Reside el controlador o acceso a los recursos
+Domain: Residen las entidades
+
+Panache: Libreria que facilita el uso de JPA en Quarkus, simplificando el acceso a datos y operaciones comunes (CRUD).
+*/
+
