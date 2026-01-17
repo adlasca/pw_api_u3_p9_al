@@ -28,7 +28,7 @@ public class MyEntity extends PanacheEntity {
     public String field;
 }
 
-/*Diseño guuiado por dominios(Domain Driver Design): 
+/*Diseño guiado por dominios(Domain Driver Design): 
 El software debe dividirse por dominios funcionales
 Cada dominio es candidato de microservicio
 
