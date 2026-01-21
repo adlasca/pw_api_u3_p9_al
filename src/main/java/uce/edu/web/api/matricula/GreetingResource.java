@@ -12,7 +12,7 @@ public class GreetingResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
 
-        return "MarcopOlo";
+        return "Hello RESTEasy";
     }
 
 

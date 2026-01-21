@@ -1,7 +1,5 @@
 package uce.edu.web.api.matricula.domain;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,14 +8,14 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Estudiante")
-@SequenceGenerator(name="estudiante_seq",sequenceName = "cliente_secuencia",allocationSize = 1)
-public class Estudiante {
+@Table(name="Materia")
+@SequenceGenerator(name="materia_seq",sequenceName = "materia_secuencia",allocationSize = 1)
+public class Materia {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estudiante_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "materia_seq")
     public Long id;
     public String nombre;
-    public String apellido;
-    public LocalDateTime fechaNacimiento;
-
+    public Long creditos;
+    public Long cupos;
+    public Boolean disponibilidad;
 }

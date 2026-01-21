@@ -28,7 +28,10 @@ public class MyEntity extends PanacheEntity {
     public String field;
 }
 
-/*Diseño guiado por dominios(Domain Driver Design): 
+/*
+Para iniciar el proyecto usar: mvnw quarkus:dev
+
+Diseño guiado por dominios(Domain Driver Design): 
 El software debe dividirse por dominios funcionales
 Cada dominio es candidato de microservicio
 
