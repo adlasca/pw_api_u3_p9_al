@@ -19,5 +19,7 @@ public class Estudiante {
     public String nombre;
     public String apellido;
     public LocalDateTime fechaNacimiento;
+    public String provincia;
+    public String genero;
 
 }
