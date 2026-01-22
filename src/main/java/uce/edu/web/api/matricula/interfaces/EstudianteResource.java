@@ -21,9 +21,9 @@ public class EstudianteResource {
     private EstudianteService estudianteService;
 
     @GET
-    @Path("/todos")
-    
+    @Path("")
     public List<Estudiante> listarTodos() {
+        System.out.println("Listar todos los estudiantes");
         return this.estudianteService.listarTodos();
     }
 
@@ -34,32 +34,33 @@ public class EstudianteResource {
     }
 
     @POST
-    @Path("/crear")
-    public void crear(Estudiante est){
+    @Path("")
+    public void guardar(Estudiante est){
         this.estudianteService.crear(est);
     }
 
     @PUT
-    @Path("actualizar/{id}")
+    @Path("/{id}")
     public void actualizar(@PathParam("id")Long id, Estudiante estu){
         this.estudianteService.actualizar(id, estu);
     }
 
     @PATCH
-    @Path("/actualizarParcial/{id}")
+    @Path("/{id}")
     public void actualizarParcial(@PathParam("id") Long id, Estudiante est){
         this.estudianteService.actualizarParcial(id, est);
     }
 
     @DELETE
-    @Path("/eliminar/{id}")
+    @Path("/{id}")
     public void borrar(@PathParam("id") Long id){
         this.estudianteService.eliminar(id);
     }
 
     @GET
-    @Path("/buscarPorProvincia")
+    @Path("/provincia")
     public List<Estudiante> buscarPorProvincia(@QueryParam("provincia")  String provincia){
+        System.out.println("Buscar por provincia: " + provincia);
         return this.estudianteService.buscarPorProvincia(provincia);
     }
 
@@ -79,5 +80,8 @@ public class EstudianteResource {
          return this.estudianteService.buscarPorProvinciaGeneroEdad(provincia, genero, edad);
     }
 
+    /*No es necesario diferenciar las rutas ya que los métodos HTTP son diferentes (GET, POST, PUT, DELETE)
+    Solo si se usara el mismo método HTTP (por ejemplo, dos GET) sería necesario diferenciar las rutas.
+    */
 
 }

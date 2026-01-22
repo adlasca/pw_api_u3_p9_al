@@ -67,7 +67,6 @@ public class EstudianteService {
     }
 
     public List<Estudiante> buscarPorProvinciaGeneroEdad(String provincia, String genero, Integer edad) {
-        // return this.estudianteRepository.find("provincia", provincia).list();
         return this.estudianteRepository.find("provincia = ?1 and genero = ?2 and fechaNacimiento <= ?3", provincia, genero, edad).list();
     }
 }

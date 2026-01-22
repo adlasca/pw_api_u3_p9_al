@@ -10,6 +10,7 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.QueryParam;
 import uce.edu.web.api.matricula.application.MateriaService;
 import uce.edu.web.api.matricula.domain.Materia;
 
@@ -20,38 +21,38 @@ public class MateriaResource {
     private MateriaService  materiaService;
 
     @GET
-    @Path("/todas")
+    @Path("")
     public List<Materia> listarMaterias(){
         return this.materiaService.listarMaterias();
     }
 
     @GET
-    @Path("/consultarId/{id}")
+    @Path("/{id}")
     public Materia buscarPorId(@PathParam("id") Long id){
         return this.materiaService.consultarMateriaPorId(id);
     }
 
     @POST
-    @Path("/agregarMateria/")
+    @Path("")
     public void agregarMateria(Materia materia){
         this.materiaService.crearMateria(materia);
     }
 
     @PUT
-    @Path("/actualizarMateria/{id}")
-    public void actualizarMateria(@PathParam("id") Long id,Materia materia){
+    @Path("/{id}")
+    public void actualizarMateria(@QueryParam("id") Long id,Materia materia){
         this.materiaService.actualizarMateria(id, materia);
     }
 
     @PATCH
-    @Path("/actualizarParcial/{id}")
-    public void actualizarParcial(@PathParam("id") Long id, Materia materia){
+    @Path("/{id}")
+    public void actualizarParcial(@QueryParam("id") Long id, Materia materia){
         this.materiaService.actualizarParcialMateria(id, materia);
     }
 
     @DELETE
-    @Path("/eliminarMateria/{id}")
-    public void eliminarMateria(@PathParam("id") Long id){
+    @Path("/{id}")
+    public void eliminarMateria(@QueryParam("id") Long id){
         this.materiaService.eliminarMateria(id);
     }
 
@@ -62,7 +63,7 @@ public class MateriaResource {
     }
 
     @GET
-    @Path("/totalMaterias")
+    @Path("/total")
     public Long contarMaterias(){
         return this.materiaService.contarMaterias();
     }
