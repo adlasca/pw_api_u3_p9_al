@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
+import jakarta.ws.rs.Produces;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -12,6 +13,7 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import uce.edu.web.api.matricula.application.EstudianteService;
 import uce.edu.web.api.matricula.domain.Estudiante;
@@ -23,13 +25,15 @@ public class EstudianteResource {
 
     @GET
     @Path("")
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Estudiante> listarTodos() {
         System.out.println("Listar todos los estudiantes");
         return this.estudianteService.listarTodos();
     }
 
     @GET
-    @Path("/consultarPorId/{id}" )
+    @Path("/{id}" )
+    @Produces(MediaType.APPLICATION_XML)
     public Estudiante consultarPorId(@PathParam("id") Long id){
         return this.estudianteService.consultarPorId(id);
     }
@@ -62,6 +66,7 @@ public class EstudianteResource {
 
     @GET
     @Path("/provincia")
+    @Produces(MediaType.APPLICATION_XML)
     public List<Estudiante> buscarPorProvincia(@QueryParam("provincia")  String provincia){
         System.out.println("Buscar por provincia: " + provincia);
         return this.estudianteService.buscarPorProvincia(provincia);

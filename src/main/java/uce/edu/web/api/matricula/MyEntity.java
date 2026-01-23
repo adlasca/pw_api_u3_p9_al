@@ -56,7 +56,7 @@ Nivel 1: Uso de URIs para representar recursos las URLS,Uris deben ser autodescr
 Nivel 2: 
 -Uso adecuado de los métodos HTTP (GET, POST, PUT, DELETE, etc.) para operar sobre los recursos. 
 -Uso correco de los códigos de estado HTTP en las respuestas.
--Uso del MediaType correcto (JSON, XML, etc.)
+-Uso correcto y explícito del MediaType (JSON, XML, etc.)
 
 Existen 5 grupos de codigos de estado: 
 1.- Respuestas informativas del 100 al 1XX :   
@@ -77,6 +77,9 @@ Existen 5 grupos de codigos de estado:
 408 Request Timeout: El servidor agotó el tiempo de espera al esperar la solicitud
 415 Unsupported Media Type: El servidor no soporta el tipo de medio de la solicitud
 5.- Errores de servidor del 500-5xx: 
+500 Error interno del servidor
+503 Servicio no disponible
+
 
 Nivel 3: Uso de hipermedios (HATEOAS) para guiar a los clientes a través de la aplicación mediante enlaces en las respuestas.
 
