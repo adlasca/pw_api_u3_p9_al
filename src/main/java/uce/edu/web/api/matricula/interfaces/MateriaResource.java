@@ -10,7 +10,9 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import uce.edu.web.api.matricula.application.MateriaService;
 import uce.edu.web.api.matricula.domain.Materia;
 
@@ -22,26 +24,30 @@ public class MateriaResource {
 
     @GET
     @Path("")
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Materia> listarMaterias(){
         return this.materiaService.listarMaterias();
     }
 
     @GET
     @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
     public Materia buscarPorId(@PathParam("id") Long id){
         return this.materiaService.consultarMateriaPorId(id);
     }
 
     @POST
     @Path("")
-    public void agregarMateria(Materia materia){
+    public Response agregarMateria(Materia materia){
         this.materiaService.crearMateria(materia);
+        return Response.status(Response.Status.CREATED).entity(materia).build();
     }
 
     @PUT
     @Path("/{id}")
-    public void actualizarMateria(@PathParam("id") Long id,Materia materia){
+    public Response actualizarMateria(@PathParam("id") Long id,Materia materia){
         this.materiaService.actualizarMateria(id, materia);
+        return Response.status(209).entity(null).build();
     }
 
     @PATCH
@@ -58,12 +64,14 @@ public class MateriaResource {
 
     @GET
     @Path("/disponibles")
+    @Produces(MediaType.APPLICATION_JSON)
     public List <Materia> listarDisponibles(){
        return this.materiaService.listarDisponibles();
     }
 
     @GET
     @Path("/total")
+    @Produces(MediaType.APPLICATION_JSON)
     public Long contarMaterias(){
         return this.materiaService.contarMaterias();
     }
