@@ -40,19 +40,19 @@ public class MateriaResource {
 
     @PUT
     @Path("/{id}")
-    public void actualizarMateria(@QueryParam("id") Long id,Materia materia){
+    public void actualizarMateria(@PathParam("id") Long id,Materia materia){
         this.materiaService.actualizarMateria(id, materia);
     }
 
     @PATCH
     @Path("/{id}")
-    public void actualizarParcial(@QueryParam("id") Long id, Materia materia){
+    public void actualizarParcial(@PathParam("id") Long id, Materia materia){
         this.materiaService.actualizarParcialMateria(id, materia);
     }
 
     @DELETE
     @Path("/{id}")
-    public void eliminarMateria(@QueryParam("id") Long id){
+    public void eliminarMateria(@PathParam("id") Long id){
         this.materiaService.eliminarMateria(id);
     }
 

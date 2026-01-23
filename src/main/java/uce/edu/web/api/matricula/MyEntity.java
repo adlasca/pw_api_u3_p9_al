@@ -41,15 +41,48 @@ Application: Reside la logica del negocio
 Interface: Reside el controlador o acceso a los recursos
 Domain: Residen las entidades
 
+MediaType: Tipo de contenido que viajen en las peticiones HTTP (application/json, text/xml, etc.)
+Request: Petición HTTP enviada por el cliente al servidor esta conformada por:
+    URL
+    Metodo HTTP
+    Headers
+    Body
+
 Panache: Libreria que facilita el uso de JPA en Quarkus, simplificando el acceso a datos y operaciones comunes (CRUD).
 
 Modelo de madurez de Richardson: Modelo que permite clasificar la madurez de una API web y existe 4 niveles:
 Nivel 0: Uso de HTTP oHTTPS pero sin aprovechar sus características (como métodos y URIs).
 Nivel 1: Uso de URIs para representar recursos las URLS,Uris deben ser autodescriptivas.
-Nivel 2: Uso adecuado de los métodos HTTP (GET, POST, PUT, DELETE, etc.) para operar sobre los recursos.
+Nivel 2: 
+-Uso adecuado de los métodos HTTP (GET, POST, PUT, DELETE, etc.) para operar sobre los recursos. 
+-Uso correco de los códigos de estado HTTP en las respuestas.
+-Uso del MediaType correcto (JSON, XML, etc.)
+
+Existen 5 grupos de codigos de estado: 
+1.- Respuestas informativas del 100 al 1XX :   
+100 Destinado para retornar una respuesta indicando que todo esta bien y que continue el proceso
+102 El servidor ha recibido la solicitud y el cliente debe continuar con el proceso
+2.- Respuestas satisfactorias del 200-2xx: 
+200 La solicitud se ha procesado correctamente
+201 Recurso creado correctamente
+204 Petición procesada correctamente pero sin contenido que retornar
+3.- Mensajes de redirección del 300-3xx: cambio en el endpoint
+4.- Error en el cliente del 400-4xx: 
+
+400 Error en la solicitud del cliente
+404 Recurso no encontrado
+403 Acceso denegado
+404 Petición mal formada
+405 Metodo no permitido
+408 Request Timeout: El servidor agotó el tiempo de espera al esperar la solicitud
+415 Unsupported Media Type: El servidor no soporta el tipo de medio de la solicitud
+5.- Errores de servidor del 500-5xx: 
+
 Nivel 3: Uso de hipermedios (HATEOAS) para guiar a los clientes a través de la aplicación mediante enlaces en las respuestas.
 
 quarkus.resteasy.path=/matricula/api/v1.0 : Configura la ruta base para los endpoints RESTful en una aplicación Quarkus, estableciéndola en /matricula/api/v1.0.
+
+
 
 */
 
