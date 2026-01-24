@@ -55,7 +55,7 @@ Nivel 0: Uso de HTTP oHTTPS pero sin aprovechar sus características (como méto
 Nivel 1: Uso de URIs para representar recursos las URLS,Uris deben ser autodescriptivas.
 Nivel 2: 
 -Uso adecuado de los métodos HTTP (GET, POST, PUT, DELETE, etc.) para operar sobre los recursos. 
--Uso correco de los códigos de estado HTTP en las respuestas.
+-Uso correcto de los códigos de estado HTTP en las respuestas.
 -Uso correcto y explícito del MediaType (JSON, XML, etc.)
 
 Existen 5 grupos de codigos de estado: 
@@ -81,7 +81,11 @@ Existen 5 grupos de codigos de estado:
 503 Servicio no disponible
 
 
-Nivel 3: Uso de hipermedios (HATEOAS) para guiar a los clientes a través de la aplicación mediante enlaces en las respuestas.
+Nivel 3: Tambien conocido como (HATEOAS) es ineficientes traer  de esa manera, no se debe traer 
+    todos los datos de una sola peticion, se utiliza hipervinculos;
+        Cuando se trata de traer del endpoin, solo traera el principal, para el "hijo"se utiliza otro vinculo, 
+        otro endpoint, 
+        2.- No se expone loas entidades 
 
 quarkus.resteasy.path=/matricula/api/v1.0 : Configura la ruta base para los endpoints RESTful en una aplicación Quarkus, estableciéndola en /matricula/api/v1.0.
 
