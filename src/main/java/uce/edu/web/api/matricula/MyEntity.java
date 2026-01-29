@@ -81,11 +81,14 @@ Existen 5 grupos de codigos de estado:
 503 Servicio no disponible
 
 
-Nivel 3: Tambien conocido como (HATEOAS) es ineficientes traer  de esa manera, no se debe traer 
+Nivel 3: Tambien conocido como (HATEOAS) es ineficiente traer  de esa manera, no se debe traer 
     todos los datos de una sola peticion, se utiliza hipervinculos;
-        Cuando se trata de traer del endpoin, solo traera el principal, para el "hijo"se utiliza otro vinculo, 
+        Cuando se trata de traer del endpoint, solo traera el principal, para el "hijo"se utiliza otro vinculo, 
         otro endpoint, 
-        2.- No se expone loas entidades 
+        2.- No se expone las entidades 
+        Para la transferencia de datos entre el cliente y el servidor se utiliza DTO(Data Transfer Object), hipervinculos, uris, urls
+        3.- Se utiliza DTO(Data Transfer Object) para transferir los datos entre el cliente y el servidor
+        4.- Se implementa la seguridad (Autenticación y Autorización)
 
 quarkus.resteasy.path=/matricula/api/v1.0 : Configura la ruta base para los endpoints RESTful en una aplicación Quarkus, estableciéndola en /matricula/api/v1.0.
 

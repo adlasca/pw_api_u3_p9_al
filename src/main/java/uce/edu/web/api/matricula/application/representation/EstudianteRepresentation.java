@@ -1,6 +1,7 @@
 package uce.edu.web.api.matricula.application.representation;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class EstudianteRepresentation {
     
@@ -11,4 +12,5 @@ public class EstudianteRepresentation {
     public String provincia;
     public String genero;
 
+    public List<LinkDto> links;
 }
