@@ -93,6 +93,23 @@ Nivel 3: Tambien conocido como (HATEOAS) es ineficiente traer  de esa manera, no
 quarkus.resteasy.path=/matricula/api/v1.0 : Configura la ruta base para los endpoints RESTful en una aplicación Quarkus, estableciéndola en /matricula/api/v1.0.
 
 
+-----------------UNIDAD 4------------------
+Autenticación: De autentico, probar que soy quien digo ser
+Implementación:
+1. Algo que yo se: password
+2. Algo que yo tengo
+3. Algo que yo soy
 
+Autorización: A que estoy autorizado a realizar
+Protocolo OAUTH 2.0: Gestiona la autorizacion basado en una autenticacion previa
+
+Elementos OAUTH 2.0
+API=Resource Server: recursos donde quiero acceder
+Authorization Server: otra API a construir, proveera la autorización para consumir la API
+Propietario: usuario, password o llave privada
+AppCliente
+
+
+Se usa un token, en este caso basado en json, mejor conocido como Json Web Token JWT
 */
 
