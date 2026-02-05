@@ -20,7 +20,7 @@ public class EstudianteService {
         for (Estudiante estu : this.estudianteRepository.listAll()) {
             list.add(this.mapperToER(estu));
         }
-        return  list;
+        return list;
     }
 
     public EstudianteRepresentation consultarPorId(Long id) {
@@ -34,7 +34,7 @@ public class EstudianteService {
 
     @Transactional
     public void actualizar(Long id, EstudianteRepresentation est) {
-        Estudiante estu = this.mapperToE( this.consultarPorId(id));
+        Estudiante estu = this.estudianteRepository.findById(id);
         estu.apellido = est.apellido;
         estu.nombre = est.nombre;
         estu.fechaNacimiento = est.fechaNacimiento;
@@ -43,7 +43,7 @@ public class EstudianteService {
 
     @Transactional
     public void actualizarParcial(Long id, EstudianteRepresentation est) {
-        Estudiante estu =this.mapperToE( this.consultarPorId(id));
+        Estudiante estu = this.estudianteRepository.findById(id);
         if (est.nombre != null) {
             estu.nombre = est.nombre;
         }
@@ -53,6 +53,12 @@ public class EstudianteService {
         if (est.fechaNacimiento != null) {
             estu.fechaNacimiento = est.fechaNacimiento;
         }
+        if (est.genero != null) {
+            estu.genero = est.genero;
+        }
+        if (est.provincia != null) {
+            estu.provincia = est.provincia;
+        }
     }
 
     @Transactional
@@ -61,7 +67,7 @@ public class EstudianteService {
     }
 
     public List<Estudiante> buscarPorProvincia(String provincia) {
-        return this.estudianteRepository.find("provinciaa", provincia).list();
+        return this.estudianteRepository.find("provincia", provincia).list();
     }
 
     public List<Estudiante> buscarPorProvinciaGenero(String provincia, String genero) {
@@ -74,26 +80,29 @@ public class EstudianteService {
     }
 
     public List<Estudiante> buscarPorProvinciaGeneroEdad(String provincia, String genero, Integer edad) {
-        return this.estudianteRepository.find("provincia = ?1 and genero = ?2 and fechaNacimiento <= ?3", provincia, genero, edad).list();
+        return this.estudianteRepository
+                .find("provincia = ?1 and genero = ?2 and fechaNacimiento <= ?3", provincia, genero, edad).list();
     }
 
-    private EstudianteRepresentation mapperToER(Estudiante est){
-        EstudianteRepresentation estuR=new EstudianteRepresentation();
-        estuR.id=est.id;
-        estuR.apellido=est.apellido;
-        estuR.fechaNacimiento=est.fechaNacimiento;
-        estuR.genero=est.genero;
-        estuR.provincia=est.provincia;
+    private EstudianteRepresentation mapperToER(Estudiante est) {
+        EstudianteRepresentation estuR = new EstudianteRepresentation();
+        estuR.id = est.id;
+        estuR.nombre = est.nombre;
+        estuR.apellido = est.apellido;
+        estuR.fechaNacimiento = est.fechaNacimiento;
+        estuR.genero = est.genero;
+        estuR.provincia = est.provincia;
         return estuR;
     }
 
-    private Estudiante mapperToE(EstudianteRepresentation estR){
-        Estudiante estu=new Estudiante();
-        estu.id=estR.id;
-        estu.apellido=estR.apellido;
-        estu.fechaNacimiento=estR.fechaNacimiento;
-        estu.genero=estR.genero;
-        estu.provincia=estR.provincia;
+    private Estudiante mapperToE(EstudianteRepresentation estR) {
+        Estudiante estu = new Estudiante();
+        estu.id = estR.id;
+        estu.nombre = estR.nombre;
+        estu.apellido = estR.apellido;
+        estu.fechaNacimiento = estR.fechaNacimiento;
+        estu.genero = estR.genero;
+        estu.provincia = estR.provincia;
         return estu;
     }
 }

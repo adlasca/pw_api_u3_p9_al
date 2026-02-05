@@ -3,7 +3,7 @@ package uce.edu.web.api.matricula.interfaces;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jboss.resteasy.annotations.jaxrs.PathParam;
+import jakarta.ws.rs.PathParam;
 
 import jakarta.annotation.security.PermitAll;
 import jakarta.annotation.security.RolesAllowed;
